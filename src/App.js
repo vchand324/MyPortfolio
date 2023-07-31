@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Cover from './components/cover';
+import NavbarComponent from "./components/navbar";
+import About from './components/about';
+import WorkExperience from './components/workExperience';
+import Quote from './components/quote';
+import Projects from './components/projects';
+import Contact from './components/contact';
+import Loading, { loadingListener } from "./components/loader";
 
-function App() {
+const App = () => {
+  React.useEffect(() => {
+    
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+          behavior: "smooth",
+        });
+      });
+    });
+
+    loadingListener();
+  }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Loading/>
+      <NavbarComponent />
+      <Cover />
+      <About />
+      <WorkExperience />
+      <Quote />
+      <Projects />
+      <Contact />
     </div>
   );
 }
