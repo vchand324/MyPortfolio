@@ -6,6 +6,7 @@ import {
   faHackerrank,
 } from "@fortawesome/free-brands-svg-icons";
 import Fade from "react-reveal/Fade";
+import Typewriter from 'typewriter-effect';
 
 const Cover = () => {
   return (
@@ -17,7 +18,15 @@ const Cover = () => {
               <h1 className="my-1 head-div-first-text">Hi, my name is</h1>
               <h1 className="head-div-second-text">Vishal.</h1>
               <h1 className="head-div-third-text">
-                I turn ideas into reality.
+                
+              <Typewriter
+              options={{
+              strings: ['I turn ideas into reality.'],
+              autoStart: true,
+              loop: true,
+              }}
+              />
+                
               </h1>
               <p className="head-div-fourth-text">
                 I'm a software developer and competitive coder based in India,
